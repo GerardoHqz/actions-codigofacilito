@@ -10,6 +10,6 @@ jobs:
       matrix:
         message: [Hola, CodigoFacilito, Adios]
 
-      steps: 
-        - name: Print message
-          run: echo "Hola ${{ matrix.message }}"
+    steps:
+      - name: Print message
+        run: echo "Hola ${{ matrix.message }}"
