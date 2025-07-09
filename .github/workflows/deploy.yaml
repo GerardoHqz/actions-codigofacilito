@@ -6,29 +6,10 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
 
-    outputs:
-      salida: Todo esta bien por aqui
+    strategy:
+      matrix:
+        message: [Hola, CodigoFacilito, Adios]
 
-    steps:
-      - name: Generar archivo
-        run: |
-          echo "Archivo prueba, hola" >> test.log
-
-      - name: Subir artefacto
-        uses: actions/upload-artifact@v4
-        with:
-          name: test.log
-          path: test.log
-
-  second_job:
-    runs-on: ubuntu-latest
-    needs: first_job
-
-    steps:
-      - name: Descargar artefacto
-        uses: actions/download-artifact@v4
-        with:
-          name: test.log
-
-      - name: Cat file
-        run: cat test.log
+      steps: 
+        - name: Print message
+          run: echo "Hola ${{ matrix.message }}"
