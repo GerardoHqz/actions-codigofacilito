@@ -8,12 +8,12 @@ jobs:
 
     outputs:
       salida: Todo esta bien por aqui
-    
+
     steps:
       - name: Generar archivo
         run: |
           echo "Archivo prueba, hola" >> test.log
-      
+
       - name: Subir artefacto
         uses: actions/upload-artifact@v4
         with:
@@ -26,8 +26,9 @@ jobs:
 
     steps:
       - name: Descargar artefacto
-          uses: actions/download-artifact@v4
-          with:
-            name: test.log 
+        uses: actions/download-artifact@v4
+        with:
+          name: test.log
+
       - name: Cat file
         run: cat test.log
