@@ -8,8 +8,11 @@ jobs:
     env:
       NAME: CodigoFacilito
     steps:
-      - name: Hola mundo
-        run: echo "Hola $CodigoFacilito"
+      - name: Working dir
+        run: ls -al
+
+      - name: Action checkout
+        uses: actions/checkout@v4
   
   second_job:
     if: ${{ github.ref == 'refs/heads/main' }}
